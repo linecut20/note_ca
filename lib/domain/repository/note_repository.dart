@@ -5,11 +5,11 @@ import 'package:note_ca/domain/model/note.dart';
 abstract class NoteRepository {
   Future<List<Note>> getNotes();
 
-  Future<Note> getNoteById(String id);
+  Future<Note?> getNoteById(int id);
 
-  Future<void> createNode(Note note);
+  Future<void> createNote(Note note);
 
-  Future<void> updateNode(Note note);
+  Future<void> updateNote(Note note);
 
-  Future<void> deleteNodeById(String id);
+  Future<void> deleteNoteById(int id);
 }
