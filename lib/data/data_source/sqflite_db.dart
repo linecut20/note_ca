@@ -1,5 +1,3 @@
-import 'dart:js_interop';
-
 import 'package:note_ca/domain/model/note.dart';
 import 'package:sqflite/sqlite_api.dart';
 
