@@ -23,7 +23,7 @@ class NoteUseCase {
     await _noteRepository.createNote(note);
   }
 
-  Future<void> updateNoteById(Note note) async {
+  Future<void> updateNote(Note note) async {
     await _noteRepository.updateNote(note);
   }
 

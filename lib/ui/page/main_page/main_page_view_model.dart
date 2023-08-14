@@ -7,7 +7,7 @@ class MainPageViewModel with ChangeNotifier {
   final NoteRepository noteRepository;
   NoteState _state = NoteState(notes: []);
   List<Note> _notes = [];
-  Note? _lastDeletedNote;
+  Note? _lastDeletedNote; //Undo 기능용 프로퍼티
 
   MainPageViewModel(this.noteRepository);
 

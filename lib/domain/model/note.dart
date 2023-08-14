@@ -47,7 +47,7 @@ class Note {
     var json = {
       'title': _title,
       'content': _content,
-      'regdate': _regdate.toIso8601String(),
+      'regdate': _regdate.millisecondsSinceEpoch,
       'color_code': _colorCode
     };
 
