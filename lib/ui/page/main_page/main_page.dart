@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:note_ca/domain/model/note.dart';
+import 'package:note_ca/ui/page/widget/note_item.dart';
+
+import '../add_note_page/add_note_page.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key});
@@ -7,6 +11,7 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.transparent,
         centerTitle: false,
         title: const Text(
           'Notes',
@@ -22,9 +27,26 @@ class MainPage extends StatelessWidget {
           ),
         ],
       ),
-      body: Container(),
+      body: Column(
+        children: [
+          NoteItem(
+            note: Note(
+                title: 'title',
+                content: 'content',
+                colorCode: Colors.red.value,
+                regdate: DateTime.now()),
+          )
+        ],
+      ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const AddNotePage(),
+            ),
+          );
+        },
         child: const Icon(Icons.note_add),
       ),
       floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:note_ca/domain/model/note.dart';
 
-class NoteWidget extends StatelessWidget {
+class NoteItem extends StatelessWidget {
   final Note note;
-  const NoteWidget({super.key, required this.note});
+  final Function? deleteButtonTap;
+  const NoteItem({super.key, required this.note, this.deleteButtonTap});
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +12,8 @@ class NoteWidget extends StatelessWidget {
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           color: Color(note.colorCode)),
-      padding: const EdgeInsets.symmetric(horizontal: 8),
+      padding: const EdgeInsets.all(16),
+      margin: const EdgeInsets.all(12),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
@@ -22,22 +24,25 @@ class NoteWidget extends StatelessWidget {
               children: [
                 Text(
                   note.title,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                   style: const TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white),
+                      fontSize: 20, fontWeight: FontWeight.bold),
                 ),
                 Text(
                   note.content,
+                  maxLines: 3,
+                  overflow: TextOverflow.ellipsis,
                   style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.normal,
-                      color: Colors.white),
+                    fontSize: 16,
+                    fontWeight: FontWeight.normal,
+                  ),
                 ),
               ],
             ),
           ),
-          IconButton(onPressed: () {}, icon: const Icon(Icons.delete))
+          IconButton(
+              onPressed: () => deleteButtonTap, icon: const Icon(Icons.delete))
         ],
       ),
     );
