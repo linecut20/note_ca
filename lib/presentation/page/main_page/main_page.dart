@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:note_ca/domain/model/note.dart';
-import 'package:note_ca/ui/page/widget/note_item.dart';
+import 'package:note_ca/presentation/page/widget/note_item.dart';
 
 import '../add_note_page/add_note_page.dart';
 
@@ -16,9 +16,7 @@ class MainPage extends StatelessWidget {
         title: const Text(
           'Notes',
           style: TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-          ),
+              fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),
         ),
         actions: [
           IconButton(
@@ -40,12 +38,8 @@ class MainPage extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const AddNotePage(),
-            ),
-          );
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const AddNotePage()));
         },
         child: const Icon(Icons.note_add),
       ),

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:note_ca/ui/page/add_note_page/add_note_page_view_model.dart';
-import 'package:note_ca/ui/page/widget/text_field/content_text_field.dart';
-import 'package:note_ca/ui/page/widget/palette_widget.dart';
-import 'package:note_ca/ui/page/widget/text_field/title_text_field.dart';
+import 'package:note_ca/presentation/page/add_note_page/add_note_page_view_model.dart';
+import 'package:note_ca/presentation/page/widget/text_field/content_text_field.dart';
+import 'package:note_ca/presentation/page/widget/palette_widget.dart';
+import 'package:note_ca/presentation/page/widget/text_field/title_text_field.dart';
 import 'package:provider/provider.dart';
 
 class AddNotePage extends StatefulWidget {

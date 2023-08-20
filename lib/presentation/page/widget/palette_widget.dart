@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:note_ca/ui/design/constrains.dart';
-import 'package:note_ca/ui/page/add_note_page/add_note_page_view_model.dart';
+import 'package:note_ca/presentation/design/constrains.dart';
+import 'package:note_ca/presentation/page/add_note_page/add_note_page_view_model.dart';
 import 'package:provider/provider.dart';
 
 final palette = [

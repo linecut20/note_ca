@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:note_ca/domain/model/note.dart';
 import 'package:note_ca/domain/repository/note_repository.dart';
-import 'package:note_ca/ui/design/constrains.dart';
+import 'package:note_ca/presentation/design/constrains.dart';
 
 class AddNotePageViewModel with ChangeNotifier {
   final NoteRepository repository;
