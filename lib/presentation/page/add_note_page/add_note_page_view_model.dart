@@ -16,23 +16,30 @@ class AddNotePageViewModel with ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> saveNote(int? id, String title, String content) async {
-    //최초 생성의 경우
-    if (id == null) {
-      repository.createNote(Note(
+  Future<bool> saveNote(
+      {int? id, required String title, required String content}) async {
+    try {
+      //최초 생성의 경우
+      if (id == null) {
+        repository.createNote(Note(
+            title: title,
+            content: content,
+            colorCode: _colorCode,
+            regdate: DateTime.now()));
+      } else {
+        //update의 경우
+        repository.updateNote(Note(
+          id: id,
           title: title,
           content: content,
           colorCode: _colorCode,
-          regdate: DateTime.now()));
-    } else {
-      //update의 경우
-      repository.updateNote(Note(
-        id: id,
-        title: title,
-        content: content,
-        colorCode: _colorCode,
-        regdate: DateTime.now(),
-      ));
+          regdate: DateTime.now(),
+        ));
+      }
+
+      return true;
+    } catch (e) {
+      return false;
     }
   }
 }

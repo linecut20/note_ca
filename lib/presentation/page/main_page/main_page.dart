@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:note_ca/domain/model/note.dart';
+import 'package:note_ca/presentation/page/add_note_page/add_note_page.dart';
+import 'package:note_ca/presentation/page/main_page/main_page_view_model.dart';
 import 'package:note_ca/presentation/page/widget/note_item.dart';
-
-import '../add_note_page/add_note_page.dart';
+import 'package:provider/provider.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key});
@@ -25,21 +25,25 @@ class MainPage extends StatelessWidget {
           ),
         ],
       ),
-      body: Column(
-        children: [
-          NoteItem(
-            note: Note(
-                title: 'title',
-                content: 'content',
-                colorCode: Colors.red.value,
-                regdate: DateTime.now()),
-          )
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: List.generate(
+              context.watch<MainPageViewModel>().notes.length,
+              (index) => NoteItem(
+                    note: context.watch<MainPageViewModel>().notes[index],
+                  )),
+        ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const AddNotePage()));
+        onPressed: () async {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const AddNotePage()),
+          ).then((result) {
+            if (result) {
+              context.read<MainPageViewModel>().loadNotes();
+            }
+          });
         },
         child: const Icon(Icons.note_add),
       ),

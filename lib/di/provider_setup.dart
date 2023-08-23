@@ -11,7 +11,7 @@ Future<NoteRepositoryImpl> getNoteRepository() async {
       version: 1,
       onCreate: (db, version) async {
         await db.execute(
-          'CREATE TABLE note (id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, content TEXT, color INTEGER, regdate INTEGER)',
+          'CREATE TABLE note (id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, content TEXT, color_code INTEGER, regdate INTEGER)',
         );
       },
     ),
