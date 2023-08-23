@@ -31,6 +31,10 @@ class MainPage extends StatelessWidget {
               context.watch<MainPageViewModel>().notes.length,
               (index) => NoteItem(
                     note: context.watch<MainPageViewModel>().notes[index],
+                    deleteButtonTap: () {
+                      context.read<MainPageViewModel>().deleteNoteById(
+                          context.read<MainPageViewModel>().notes[index].id!);
+                    },
                   )),
         ),
       ),

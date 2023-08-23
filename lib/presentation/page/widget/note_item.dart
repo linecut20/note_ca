@@ -60,7 +60,11 @@ class NoteItem extends StatelessWidget {
               ),
             ),
             IconButton(
-                onPressed: () => deleteButtonTap,
+                onPressed: () {
+                  if (deleteButtonTap != null) {
+                    deleteButtonTap!();
+                  }
+                },
                 icon: const Icon(Icons.delete))
           ],
         ),
